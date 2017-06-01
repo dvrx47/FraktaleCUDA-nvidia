@@ -5,8 +5,8 @@
 #include <stdlib.h>
 #define D 1000
 
-#define re -0.8
-#define im 0.156
+#define re -0.5
+#define im 0.45
 #define scale 1.5
 
 __device__ int julia( float x, float y){
@@ -44,13 +44,13 @@ int main()
 {
 	FILE *fp;
 	if ((fp=fopen("obraz.pbm", "w"))==NULL) {
-		printf ("Nie mogê otworzyæ pliku test.txt do zapisu!\n");
+		printf ("Nie mogÃª otworzyÃ¦ pliku test.txt do zapisu!\n");
 		exit(1);
     }
 
 	fprintf( fp, "P1\n%d %d\n", D, D);
 
-	//deklarujê tablicê na karcie graficznej
+	//deklarujÃª tablicÃª na karcie graficznej
 	int * dev_obraz;
 	cudaMalloc( &dev_obraz, sizeof(int) * D *D  );
 	
